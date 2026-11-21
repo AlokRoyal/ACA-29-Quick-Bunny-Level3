@@ -1,19 +1,34 @@
 # Quick Bunny — Level 3
 
-A sprite-based browser game in which the bunny tries to reach a carrot while snakes appear across the playfield. This version adds local artwork and randomly positioned moving hazards.
+![JavaScript](https://img.shields.io/badge/JavaScript-p5.js-FB7D24?logo=p5dotjs&logoColor=white)
+![Game](https://img.shields.io/badge/type-browser%20game-4C8EDA)
 
-## How to play
+A sprite-based browser game in which the bunny tries to reach a carrot while randomly positioned snakes cross the playfield. This iteration adds local artwork and generated moving hazards.
 
-Use the arrow keys to move. Touching a snake returns the bunny to its lower-left starting point; reaching the carrot displays the win message.
+## Play
 
-## What the sketch does
+Use the arrow keys to move. Touching a snake sends the bunny back to its starting position. Reach the carrot to display the win message.
 
-preload() loads background, bunny, carrot, and snake images from images/. setup() creates the 600 × 600 canvas, player, target, and snake group. draw() handles movement, boundary bouncing, collisions, and rendering. generateSnakes() adds a snake periodically, gives it a random position and horizontal velocity, and removes it after a limited lifetime.
+## How it works
 
-## Run locally
+preload() loads the background, bunny, carrot, and snake images from images/. setup() creates the 600 × 600 canvas and initializes the sprites. During draw(), the sketch handles movement, edge bouncing, snake generation, collisions, and rendering. Snakes receive randomized positions and horizontal velocities and are removed after a short lifetime.
 
-Open index.html in a browser with images/, CSS/, and lib/ in their existing locations. No npm installation or build command is provided.
+## Architecture
 
-## Stack
+Keyboard input → bunny sprite → generated snake group → collision/reset or carrot win → canvas rendering
 
-HTML5, CSS, JavaScript, p5.js, and p5.play. This is a local browser game prototype with no backend or persistent score.
+## Start locally
+
+Open index.html in a browser with images/, CSS/, and lib/ in place. No npm install or build command is provided. Use a local static server if local file loading is restricted.
+
+## Project layout
+
+- index.html — browser entry point
+- sketch.js — gameplay and sprite logic
+- images/ — background, bunny, carrot, and snake artwork
+- CSS/ — stylesheet
+- lib/ — game libraries
+
+## Limitations
+
+There is no saved progress, score tracking, backend, or automated test suite.
